@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "run": "nodemon",
-    "update": "git add . && git commit -m \"$(date +%Y-%m-%d)\" && git push && nodemon"
+    "start": "git add . && git commit -m \"update\" && git push && node main.js"
+
   },
   "author": "azukiov",
   "license": "ISC",
