@@ -1,0 +1,21 @@
+{
+  "name": "azukiov",
+  "version": "0.0.1",
+  "description": "Bot for Azukiov's Discord server",
+  "main": "main.js",
+  "scripts": {
+    "run": "nodemon",
+    "update": "git add . && git commit -m \"update\" && git push && nodemon"
+  },
+  "author": "azukiov",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.2",
+    "mariadb": "^3.2.3",
+    "path": "^0.12.7",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}

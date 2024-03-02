@@ -1,0 +1,9 @@
+{
+    "join": [
+        "{user} viens de rejoindre le serveur !",
+        "Bienvenue à {user} qui vient de nous rejoindre !",
+        "A tu pensé a ramener des chips {user} ?",
+        "Qui veut 1v1 {user} ?",
+        "Lache ton sub {user} !"
+    ]
+}
