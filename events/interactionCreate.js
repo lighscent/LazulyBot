@@ -15,9 +15,6 @@ module.exports = {
                 return interaction.reply({ content: `Command not found`, ephemeral: true });
             }
 
-           
-            
-
             await command.execute(client, interaction);
             log.cmd(`${interaction.user.id} used command ${interaction.commandName} in ${interaction.guild.id}`)
         } catch (error) {

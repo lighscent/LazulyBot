@@ -18,10 +18,10 @@ module.exports = {
                 log.error(`Channel with ID ${channel.text.welcome} not found`);
                 return;
             } else {
-                let baseImage = path.join(__dirname, '../img/uwu.png');
+                let baseImage = path.join(__dirname, '../img/welcome.png');
                 let avatar = member.user.displayAvatarURL({ format: 'png' });
+                avatar = avatar.replace('.webp', '.png');
 
-                //avec canvas on va créer une image avec le fond et l'avatar 
                 const canvas = createCanvas(700, 250);
                 const ctx = canvas.getContext('2d');
 
@@ -31,19 +31,30 @@ module.exports = {
                 ctx.beginPath();
                 ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
                 ctx.closePath();
+                
+                ctx.save()
                 ctx.clip();
 
                 const image = await loadImage(avatar);
                 ctx.drawImage(image, 25, 25, 200, 200);
 
-                const embed = djs.EmbedBuilder()
-                    .setTitle(messages.welcome.title)
-                    .setDescription(messages.welcome.description)
-                    .setColor(messages.welcome.color)
-                    .setImage('attachment://welcome.png')
-                    .setFooter(messages.welcome.footer);
+                ctx.restore();
 
-                channelWelcome.send({ embeds: [embed] });
+                ctx.font = '45px Arial Rounded MT Bold';
+                ctx.fillStyle = '#ffffff';
+                ctx.strokeStyle = '#000000';
+                ctx.lineWidth = 2;
+                ctx.strokeText(`Bienvenue ${member.user.username}`, 250, 125);
+                ctx.fillText(`Bienvenue ${member.user.username}`, 250, 125);
+
+                ctx.font = '30px Arial Rounded MT Bold';
+                ctx.strokeText(`Tu es le membre #${member.guild.memberCount} <3`, 250, 175);
+                ctx.fillText(`Tu es le membre #${member.guild.memberCount} <3`, 250, 175);
+
+                const buffer = canvas.toBuffer('image/png');
+
+
+                channelWelcome.send({ content: `Welcome to the server, ${member}`, files: [{ attachment: buffer, name: 'welcome.png' }] });
             }
 
 

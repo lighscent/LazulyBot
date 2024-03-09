@@ -1,12 +1,10 @@
 {
   "name": "azukiov",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Bot for Azukiov's Discord server",
   "main": "main.js",
   "scripts": {
-    "run": "nodemon",
-    "start": "git add . && git commit -m \"update\" && git push && node main.js"
-
+    "start": "update.bat"
   },
   "author": "azukiov",
   "license": "ISC",
