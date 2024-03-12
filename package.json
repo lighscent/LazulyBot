@@ -4,7 +4,7 @@
   "description": "Bot for Azukiov's Discord server",
   "main": "main.js",
   "scripts": {
-    "update": "git add . && git commit -m \"Update\" && git push"
+    "update": "git add . && git commit -m \"just a new commit\" && git push"
   },
   "author": "azukiov",
   "license": "ISC",

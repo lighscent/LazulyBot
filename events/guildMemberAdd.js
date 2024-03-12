@@ -40,12 +40,12 @@ module.exports = {
 
                 ctx.restore();
 
-                ctx.font = '45px Arial Rounded MT Bold';
+                ctx.font = '35px Arial Rounded MT Bold';
                 ctx.fillStyle = '#ffffff';
                 ctx.strokeStyle = '#000000';
                 ctx.lineWidth = 2;
-                ctx.strokeText(`Bienvenue ${member.user.username}`, 250, 125);
-                ctx.fillText(`Bienvenue ${member.user.username}`, 250, 125);
+                ctx.strokeText(`Bienvenue ${member.user.username}`, 250, 105);
+                ctx.fillText(`Bienvenue ${member.user.username}`, 250, 105);
 
                 ctx.font = '30px Arial Rounded MT Bold';
                 ctx.strokeText(`Tu es le membre #${member.guild.memberCount} <3`, 250, 175);
@@ -65,6 +65,14 @@ module.exports = {
                 return;
             } else {
                 channelMemberCount.setName(`👥〃${member.guild.memberCount} membres`);
+            }
+
+            let channelBoostCount = member.guild.channels.cache.get(channel.voice.boostCount);
+            if (channelBoostCount === undefined) {
+                log.error(`Channel with ID ${channel.voice.boostCount} not found`);
+                return;
+            } else {
+                channelBoostCount.setName(`🚀〃${member.guild.premiumSubscriptionCount} boosts`);
             }
 
         } catch (err) {

@@ -29,6 +29,13 @@ module.exports = {
                 channelMemberCount.setName(`👥〃${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)} membres`);
             }
             
+            let channelBoostCount = client.channels.cache.get(channel.voice.boostCount);
+            if (channelBoostCount === undefined) {
+                log.error(`Channel with ID ${channel.voice.boostCount} not found`);
+                return;
+            } else {
+                channelBoostCount.setName(`🚀〃${client.guilds.cache.reduce((a, g) => a + g.premiumSubscriptionCount, 0)} boosts`);
+            }
 
         } catch (err) {
             log.error(err);
