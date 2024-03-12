@@ -37,6 +37,9 @@ module.exports = {
                 channelBoostCount.setName(`🚀〃${client.guilds.cache.reduce((a, g) => a + g.premiumSubscriptionCount, 0)} boosts`);
             }
 
+            
+            require('../embeds/rules.js')(client);
+
         } catch (err) {
             log.error(err);
         }
